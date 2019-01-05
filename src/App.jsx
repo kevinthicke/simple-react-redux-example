@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import { createStore } from 'redux';
 import { connect } from 'react-redux';
-
-import counter from './reducer';
 import { increaseAction, decreaseAction } from './actions';
 
 // React component
@@ -19,14 +16,12 @@ class Counter extends Component {
     }
   }
 
-// Map Redux state to component props
 function mapStateToProps(state) {
     return {
         value: state.count
     }
 }
 
-// Map Redux actions to component props
 function mapDispatchToProps(dispatch) {
     return {
         onIncreaseClick: () => dispatch(increaseAction),
@@ -34,7 +29,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-/* Conectamos el componente 'Counter' de React con el 'Store' de React*/
-const CounterConnected = connect(mapStateToProps, mapDispatchToProps)(Counter);
-
-export default CounterConnected;
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);

@@ -1,6 +1,6 @@
 import { INCREASE, DECREASE } from "../actions/types";
 
-export default function counter(state, action) {
+export default (state, action) => {
     const count = state.count
     switch (action.type) {
       case INCREASE:
